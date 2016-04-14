@@ -14,19 +14,49 @@
  *= require_self
  */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "better_bootstrap";
 
+ @import "materialize";
+
+$body-bg:               #D8C9C4;
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              #4B3859;   // #333
+$gray:                   #5764A7; // #555
+$gray-light:             #A99286; // #777
+$gray-lighter:           #9EA6D3; // #eee
+
+$brand-primary:         #5C4C6A; // #337ab7
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+nav {
+  background-color: $gray-dark;
+}
+
+body {
+  background-color: $body-bg;
+  label {
+    color: $gray-dark;
+  }
+  input {
+
+  }
+  .btn-color {
+    background-color: $gray-dark;
+    &:hover {
+      background-color: $gray;
+    }
+  }
+}
 .main-page {
   padding-top: 45px;
 }
 
-.nav-btns {
-  width: 125px;
-}
+
+
 
 .user-form {
-  width: 400px;
-  margin-bottom: 20px;
+
 }
