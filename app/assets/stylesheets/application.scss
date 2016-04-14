@@ -40,9 +40,14 @@ body {
   label {
     color: $gray-dark;
   }
-  input {
-
+  .thought-card {
+    border: solid 1px black;
+    .thought-header{
+      margin-bottom: 0;
+      border-bottom: solid 1px $gray-lighter;
+    }
   }
+
   .btn-color {
     background-color: $gray-dark;
     &:hover {
