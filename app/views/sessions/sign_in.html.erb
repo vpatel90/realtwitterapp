@@ -1,0 +1,29 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+<div class="container">
+  <%= form_tag '/sign_in', method: :POST do %>
+    <div class="row">
+      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+      <%= label_tag :email%>
+    </div>
+    <div class="row">
+      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+      <%= email_field_tag :email, nil, class: "user-form" %>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+      <%= label_tag :password %>
+    </div>
+    <div class="row">
+      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+      <%= password_field_tag :password, nil, class: "user-form" %>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+      <%= submit_tag "Login", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
