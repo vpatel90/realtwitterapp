@@ -47,17 +47,37 @@ ready = function() {
       '</div>';
     };
 
+    var getTopUserHTML = function(user) {
+        return '<div class="thought-card col s12 m12 l12">' +
+          '<div class="row thought-header">' +
+            '<div class="col s6 m6 l6">'+
+            '<p>' +
+            '<a href="/users/' +
+            user.id +
+            '">' + '$' + user.handle +
+            '</a>' +
+            '</p>' +
+            '</div>'+
+            '<div class="col s6 m6 l6">' +
+              '<p> <small>Thoughts:' + user.thoughts_count + '</small></p>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    };
+
     var url = document.URL;
     var jsonThoughts = function () {
 
       $.getJSON(url, function(response){
-          console.log(response);
-          $("#thoughts-container").html("<h3> Now </h3>");
-          var thoughts = response["thoughts"];
-          thoughts.forEach(function(thought) {
-          $("#thoughts-container").append(getHTML(thought));
+            $("#thoughts-container").html("<h3> Now </h3>");
+            response["thoughts"].forEach(function(thought) {
+                $("#thoughts-container").append(getHTML(thought));
+            });
+            $("#top-users-container").html("<h3> Top Users </h3>");
+            response["top_users"].forEach(function(user) {
+                $("#top-users-container").append(getTopUserHTML(user));
+            });
         });
-      });
     }
 
     $("#new-thought[data-remote]").on("ajax:success", function (e, data, status, xhr){
@@ -65,10 +85,10 @@ ready = function() {
         jsonThoughts();
     });
 
-    // refreshThoughts = setInterval(function () {
-    //
-    //     jsonThoughts();
-    // }, 1000);
+    refreshThoughts = setInterval(function () {
+
+        jsonThoughts();
+    }, 1000);
 
 };
 
