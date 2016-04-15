@@ -1,6 +1,10 @@
 class Thought < ActiveRecord::Base
   belongs_to :user, counter_cache: true
 
+  validates :body, presence: true
+
+  validates :body, length: { in: 2..140 }
+
   def time
     "#{updated_at.strftime('%x')} on #{updated_at.strftime('%r')}"
   end
