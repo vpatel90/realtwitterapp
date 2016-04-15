@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def current_user
     return if session[:user_id].nil?
     @current_user ||= User.find(session[:user_id]) # Return the current_user
+
   end
   helper_method :current_user # Make this method available on the view as a helper
 

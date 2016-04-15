@@ -1,13 +1,17 @@
 class ThoughtsController < ApplicationController
   def index
+    @top_users = User.all.order(thoughts_count: :desc).limit(10)
     @thoughts = Thought.all.order(created_at: :desc)
     respond_to do |format|
       format.html do
         @thoughts
       end
       format.json do
-        render json: @thoughts.to_json(methods: [:time, :user_handle, :user_id])
+
+        render json: { thoughts: @thoughts,
+                        top_users: @top_users }
       end
+
     end
   end
 

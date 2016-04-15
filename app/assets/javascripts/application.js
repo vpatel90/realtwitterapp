@@ -17,8 +17,9 @@
 
 
 var ready;
+var refreshThoughts;
 ready = function() {
-
+    clearInterval(refreshThoughts);
     var getHTML = function(thought) {
         return '<div class="thought-card col s12 m12 l12">' +
         '<div class="row thought-header">' +
@@ -48,9 +49,12 @@ ready = function() {
 
     var url = document.URL;
     var jsonThoughts = function () {
+
       $.getJSON(url, function(response){
-          $("#thoughts-container").html("");
-          response.forEach(function(thought) {
+          console.log(response);
+          $("#thoughts-container").html("<h3> Now </h3>");
+          var thoughts = response["thoughts"];
+          thoughts.forEach(function(thought) {
           $("#thoughts-container").append(getHTML(thought));
         });
       });
@@ -61,10 +65,13 @@ ready = function() {
         jsonThoughts();
     });
 
-    setInterval(function () {
-        jsonThoughts();
-    }, 1000);
+    // refreshThoughts = setInterval(function () {
+    //
+    //     jsonThoughts();
+    // }, 1000);
+
 };
+
 
 $(document).ready(ready);
 $(document).on('page:load', ready);

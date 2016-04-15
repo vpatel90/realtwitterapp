@@ -4,6 +4,7 @@
 
 
 <div class="row" id="thoughts-container">
+  <h3> Now </h3>
 <% @thoughts.each do |thought| %>
   <%= render partial: 'thoughts/thoughtbox',
       locals: { thought: thought } %>

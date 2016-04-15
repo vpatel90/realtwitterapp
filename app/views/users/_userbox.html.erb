@@ -1,0 +1,14 @@
+
+
+<div class="thought-card col s12 m12 l12">
+  <div class="row thought-header">
+    <div class="col s6 m6 l6">
+      <p> <%= link_to "$#{user.handle}", user_path(user.id) %> </p>
+    </div>
+
+    <div class="col s6 m6 l6">
+      <p> <small>Thoughts: <%= user.thoughts_count %> </small></p>
+    </div>
+
+  </div>
+</div>

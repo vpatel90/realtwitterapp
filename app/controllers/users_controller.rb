@@ -11,9 +11,7 @@ class UsersController < ApplicationController
 
       end
       format.json do
-        render json: @thoughts.to_json(methods: [:time, :user_handle, :user_id])
-        
-      end
+        render json: @thoughts
     end
   end
 
