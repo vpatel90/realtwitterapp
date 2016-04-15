@@ -25,7 +25,12 @@ ready = function() {
         return '<div class="thought-card col s12 m12 l12">' +
         '<div class="row thought-header">' +
           '<div class="col s6 m4 l4">' +
-            '<p>$' + thought.user_handle + '</p>' +
+            '<p>' +
+            '<a href="/users/' +
+            thought.user_id +
+            '">' + '$' + thought.user_handle +
+            '</a>' +
+            '</p>' +
           '</div>' +
 
           '<div class="right">' +
@@ -33,11 +38,15 @@ ready = function() {
           '</div>' +
 
         '</div>' +
+        '<a href="/thoughts/' +
+        thought.id +
+        '">' +
         '<div class="row">' +
           '<div class="col s12 m12 l12">' +
             '<p>' + thought.body + '</p>' +
           '</div>' +
         '</div>' +
+        '</a>' +
       '</div>';
 
     };

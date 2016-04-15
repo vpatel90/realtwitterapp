@@ -8,4 +8,8 @@ class Thought < ActiveRecord::Base
   def user_handle
     user.handle
   end
+
+  def user_id
+    user.id
+  end
 end
