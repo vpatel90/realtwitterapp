@@ -18,7 +18,7 @@
              <%= link_to "Log Out", sign_out_path %>
            </li>
            <li>
-             <%= link_to "Hello $#{current_user.handle}", '#' %>
+             <%= link_to "Hello $#{current_user.handle}", user_path(current_user.id) %>
            </li>
          <% else %>
            <li>
@@ -33,22 +33,25 @@
     </div>
   </nav>
 </div>
+
 <div class="main-page container">
-  <div class="container">
-    <%= form_tag '/thoughts', remote:true, id:"new-thought", method: :POST do %>
-      <div class="row">
-        <%= label_tag :body, "New Thought"%>
-      </div>
-      <div class="row">
-        <div class="col s10 m10 l10">
-        <%= text_field_tag :body, nil, class: "user-form", autofocus: true %>
+  <% if signed_in? %>
+    <div class="container">
+      <%= form_tag '/thoughts', remote:true, id:"new-thought", method: :POST do %>
+        <div class="row">
+          <%= label_tag :body, "New Thought"%>
         </div>
-        <div class="right">
-        <%= submit_tag "Share", class: "btn btn-color" %>
+        <div class="row">
+          <div class="col s10 m10 l10">
+          <%= text_field_tag :body, nil, class: "user-form", autofocus: true %>
+          </div>
+          <div class="right">
+          <%= submit_tag "Share", class: "btn btn-color" %>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 <%= yield %>
 </div>
 

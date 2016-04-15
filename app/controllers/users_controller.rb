@@ -3,6 +3,17 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @thoughts = @user.thoughts.order(created_at: :DESC)
+    respond_to do |format|
+      format.html do
+
+
+      end
+      format.json do
+        render json: @thoughts.to_json(methods: [:time, :user_handle])
+      end
+    end
   end
 
   def new

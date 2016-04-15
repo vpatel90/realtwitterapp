@@ -1,2 +1,11 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>$<%= @user.handle %></h1>
+
+
+
+
+<div class="row" id="thoughts-container">
+<% @thoughts.each do |thought| %>
+  <%= render partial: 'thoughts/thoughtbox',
+      locals: { thought: thought } %>
+<% end %>
+</div>

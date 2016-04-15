@@ -25,7 +25,7 @@ ready = function() {
         return '<div class="thought-card col s12 m12 l12">' +
         '<div class="row thought-header">' +
           '<div class="col s6 m4 l4">' +
-            '<p>' + thought.user_handle + '</p>' +
+            '<p>$' + thought.user_handle + '</p>' +
           '</div>' +
 
           '<div class="right">' +
