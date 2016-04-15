@@ -31,6 +31,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if signed_in? && params[:id].to_i == current_user.id
+      @user = current_user
+    else
+      redirect_to root_path
+    end
+
   end
 
   private

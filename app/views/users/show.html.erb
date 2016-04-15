@@ -1,5 +1,7 @@
 <h1>$<%= @user.handle %></h1>
-
+<% if signed_in? && params[:id].to_i == current_user.id %>
+  <%= link_to "Edit Profile", edit_user_path(@user.id), class: "btn btn-color right" %>
+<% end %>
 
 
 

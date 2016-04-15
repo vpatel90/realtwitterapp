@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415145934) do
+ActiveRecord::Schema.define(version: 20160415231308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,13 +26,14 @@ ActiveRecord::Schema.define(version: 20160415145934) do
   add_index "thoughts", ["user_id"], name: "index_thoughts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "handle",                      null: false
-    t.string   "email",                       null: false
-    t.string   "password_digest",             null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "handle",                          null: false
+    t.string   "email",                           null: false
+    t.string   "password_digest",                 null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "bio"
     t.integer  "thoughts_count",  default: 0
+    t.boolean  "admin",           default: false
   end
 
   add_foreign_key "thoughts", "users"

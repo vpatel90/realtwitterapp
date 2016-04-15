@@ -6,7 +6,7 @@ class Thought < ActiveRecord::Base
   validates :body, length: { in: 2..140 }
 
   def time
-    "#{updated_at.strftime('%x')} on #{updated_at.strftime('%r')}"
+    "#{created_at.strftime('%r')} on #{created_at.strftime('%x')}"
   end
 
   def user_handle
