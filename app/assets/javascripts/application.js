@@ -73,10 +73,15 @@ ready = function() {
             response["thoughts"].forEach(function(thought) {
                 $("#thoughts-container").append(getHTML(thought));
             });
-            $("#top-users-container").html("<h3> Top Users </h3>");
-            response["top_users"].forEach(function(user) {
-                $("#top-users-container").append(getTopUserHTML(user));
-            });
+            var topUsersContainer = $("#top-users-container");
+            if (topUsersContainer.length === 0) {
+              return
+            } else {
+              topUsersContainer.html("<h3> Top Users </h3>");
+              response["top_users"].forEach(function(user) {
+                  topUsersContainer.append(getTopUserHTML(user));
+              });
+            }
         });
     }
 
@@ -86,11 +91,11 @@ ready = function() {
     });
 
     refreshThoughts = setInterval(function () {
-
         jsonThoughts();
     }, 1000);
 
 };
+
 
 
 $(document).ready(ready);

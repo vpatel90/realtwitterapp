@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       format.html do
       end
       format.json do
-        render json: @thoughts
+        render json: { thoughts: @thoughts }
       end
     end
   end
