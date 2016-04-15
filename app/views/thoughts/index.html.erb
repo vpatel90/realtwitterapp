@@ -1,7 +1,7 @@
 <h1>Thoughts#index</h1>
 <p>Find me in app/views/thoughts/index.html.erb</p>
 
-<div class="row">
+<div class="row" id="thoughts-container">
 <% @thoughts.each do |thought| %>
   <%= render partial: 'thoughtbox',
       locals: { thought: thought } %>

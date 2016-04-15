@@ -4,4 +4,8 @@ class Thought < ActiveRecord::Base
   def time
     "#{updated_at.strftime('%x')} on #{updated_at.strftime('%r')}"
   end
+
+  def user_handle
+    user.handle
+  end
 end
