@@ -7,11 +7,10 @@ class UsersController < ApplicationController
     @thoughts = @user.thoughts.order(created_at: :DESC)
     respond_to do |format|
       format.html do
-
-
       end
       format.json do
         render json: @thoughts
+      end
     end
   end
 
