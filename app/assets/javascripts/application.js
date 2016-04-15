@@ -20,8 +20,6 @@ var ready;
 ready = function() {
 
     var getHTML = function(thought) {
-
-
         return '<div class="thought-card col s12 m12 l12">' +
         '<div class="row thought-header">' +
           '<div class="col s6 m4 l4">' +
@@ -32,11 +30,9 @@ ready = function() {
             '</a>' +
             '</p>' +
           '</div>' +
-
           '<div class="right">' +
             '<p> <small>' + thought.time + '</small></p>' +
           '</div>' +
-
         '</div>' +
         '<a href="/thoughts/' +
         thought.id +
@@ -48,19 +44,26 @@ ready = function() {
         '</div>' +
         '</a>' +
       '</div>';
-
     };
 
     var url = document.URL;
+    var jsonThoughts = function () {
+      $.getJSON(url, function(response){
+          $("#thoughts-container").html("");
+          response.forEach(function(thought) {
+          $("#thoughts-container").append(getHTML(thought));
+        });
+      });
+    }
+
     $("#new-thought[data-remote]").on("ajax:success", function (e, data, status, xhr){
         $("#body").val("");
-        $.getJSON(url, function(response){
-            $("#thoughts-container").html("");
-            response.forEach(function(thought) {
-            $("#thoughts-container").append(getHTML(thought));
-          });
-        });
+        jsonThoughts();
     });
+
+    setInterval(function () {
+        jsonThoughts();
+    }, 1000);
 };
 
 $(document).ready(ready);
