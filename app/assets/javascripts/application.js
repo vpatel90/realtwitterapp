@@ -94,6 +94,10 @@ ready = function() {
         jsonThoughts();
     }, 1000);
 
+    $("#hide-form, #show-form").on("click", function(){
+        $("#form-container").toggleClass("hidden-form");
+    });
+
 };
 
 

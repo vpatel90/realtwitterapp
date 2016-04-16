@@ -2,7 +2,7 @@
 <% if signed_in? && params[:id].to_i == current_user.id %>
   <div class="btn btn-color right", id="show-form"> Edit Profile </div>
 
-  <div class="container hidden-form">
+  <div id="form-container" class="container hidden-form">
     <%= form_for(@user, class:"form-group", remote: true) do |f| %>
       <div class="row">
         <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
