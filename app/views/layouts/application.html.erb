@@ -18,7 +18,7 @@
              <%= link_to "Log Out", sign_out_path %>
            </li>
            <li>
-             <%= link_to "Hello $#{current_user.handle}", user_path(current_user.id) %>
+             <%= link_to "Hello, $#{current_user.handle}", user_path(current_user.id) %>
            </li>
          <% else %>
            <li>

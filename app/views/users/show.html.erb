@@ -1,6 +1,40 @@
 <h1>$<%= @user.handle %></h1>
 <% if signed_in? && params[:id].to_i == current_user.id %>
-  <%= link_to "Edit Profile", edit_user_path(@user.id), class: "btn btn-color right" %>
+  <div class="btn btn-color right", id="show-form"> Edit Profile </div>
+
+  <div class="container hidden-form">
+    <%= form_for(@user, class:"form-group", remote: true) do |f| %>
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <%= f.label :handle%>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <%= f.text_field :handle, class:"user-form", autofocus: true%>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <%= f.label :bio %>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <%= f.text_field :bio, class:"user-form" %>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <%= f.label :email %>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <%= f.email_field :email, class:"user-form" %>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <%= f.submit "Save Changes", class: "btn btn-color", id: "hide-form" %>
+      </div>
+    <% end %>
+  </div>
+
 <% end %>
 
 
