@@ -27,7 +27,7 @@ ready = function() {
             '<p>' +
             '<a href="/users/' +
             thought.user_id +
-            '">' + '$' + thought.user_handle +
+            '">' + '$ ' + thought.user_handle +
             '</a>' +
             '</p>' +
           '</div>' +
@@ -97,10 +97,7 @@ ready = function() {
     $("#hide-form, #show-form").on("click", function(){
         $("#form-container").toggleClass("hidden-form");
     });
-
 };
-
-
 
 $(document).ready(ready);
 $(document).on('page:load', ready);

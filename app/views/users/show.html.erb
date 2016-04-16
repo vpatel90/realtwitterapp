@@ -1,5 +1,5 @@
 <h1>$<%= @user.handle %></h1>
-<% if signed_in? && params[:id].to_i == current_user.id %>
+<% if (signed_in? && params[:id].to_i == current_user.id) || current_user.admin %>
   <div class="btn btn-color right", id="show-form"> Edit Profile </div>
 
   <div id="form-container" class="container hidden-form">
