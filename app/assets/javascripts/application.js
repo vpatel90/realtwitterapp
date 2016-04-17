@@ -42,7 +42,7 @@ ready = function() {
               '</div>' +
             '</div>' +
           '</div>' +
-            '<div class="right">' +
+            '<div class="right pad-right">' +
               '<p> <small>' + thought.time + '</small></p>' +
             '</div>' +
 
