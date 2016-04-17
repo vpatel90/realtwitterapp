@@ -64,6 +64,20 @@ nav {
   }
 }
 
+.link-color {
+  color: #777;
+}
+
+.profile-pic {
+  width: 50px;
+}
+.pic-border {
+  background-color: $brand-accent;
+  width: 51px;
+  height: 51px;
+  border-radius: 50%;
+}
+
 .row {
     input[type=text]:focus {
     border-bottom: 2px solid $brand-accent;
@@ -90,11 +104,25 @@ body {
       background-color: $gray;
     }
   }
+
+  .container-header {
+    font-weight: lighter;
+    color: $brand-accent;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: solid 1px $brand-accent;
+
+  }
+  .top-users-container {
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 2%;
+  }
+
 }
 .main-page {
   padding-top: 45px;
 }
-
 
 .hidden-form {
   display: none;

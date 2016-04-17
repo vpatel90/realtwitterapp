@@ -7,11 +7,13 @@
           locals: { thought: thought } %>
     <% end %>
   </div>
-  <div class= "col s12 m4 l4" id="top-users-container">
-    <h3> Top Users </h3>
-    <% @top_users.each do |user| %>
-      <%= render partial: 'users/userbox',
-          locals: { user: user } %>
-    <% end %>
+  <div class= "col s12 m4 l4 top-users-container" id="top-users-container">
+    <h3 class="container-header center"> Top Users </h3>
+
+      <% @top_users.each do |user| %>
+        <%= render partial: 'users/userbox',
+            locals: { user: user } %>
+      <% end %>
+
   </div>
 </div>

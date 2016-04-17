@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415231308) do
+ActiveRecord::Schema.define(version: 20160417171327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160415231308) do
     t.string   "bio"
     t.integer  "thoughts_count",  default: 0
     t.boolean  "admin",           default: false
+    t.string   "pic"
   end
 
   add_foreign_key "thoughts", "users"

@@ -51,7 +51,15 @@ ready = function() {
     var getTopUserHTML = function(user) {
         return '<div class="thought-card col s12 m12 l12">' +
           '<div class="row thought-header">' +
-            '<div class="col s6 m6 l6">'+
+            '<div class="col s2 m2 l2">'+
+            '<div class="pic-border">' +
+            '<img class="responsive-img circle profile-pic" src="' +
+            user.pic + '">'+
+
+            '</div>'+
+
+            '</div>'+
+            '<div class="col s7 m7 l7">'+
             '<p>' +
             '<a href="/users/' +
             user.id +
@@ -59,8 +67,8 @@ ready = function() {
             '</a>' +
             '</p>' +
             '</div>'+
-            '<div class="col s6 m6 l6">' +
-              '<p> <small>Thoughts:' + user.thoughts_count + '</small></p>' +
+            '<div class="col s3 m3 l3">' +
+              '<p class="chattr-logo"> <i class="fa fa-comment" aria-hidden="true"></i>' + user.thoughts_count + '</p>' +
             '</div>' +
           '</div>' +
         '</div>';
