@@ -30,6 +30,14 @@
       </div>
       <div class="row">
         <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <%= f.label :pic %>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <%= f.url_field :pic, class:"user-form" %>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
         <%= f.submit "Save Changes", class: "btn btn-color", id: "hide-form" %>
       </div>
     <% end %>

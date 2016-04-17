@@ -36,12 +36,20 @@ class UsersController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
 
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to show_user_path(params[:id])
+    else
+      render edit
+    end
+  end
   private
 
   def user_params
-    params.require(:user).permit(:handle, :bio, :email, :password, :password_confirmation)
+    params.require(:user).permit(:handle, :bio, :email, :password, :password_confirmation, :pic)
   end
 end
