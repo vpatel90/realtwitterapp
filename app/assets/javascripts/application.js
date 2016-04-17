@@ -28,7 +28,7 @@ ready = function() {
             '<p>' +
             '<a href="/users/' +
             thought.user_id +
-            '">' + '$ ' + thought.user_handle +
+            '">' + '@' + thought.user_handle +
             '</a>' +
             '</p>' +
           '</div>' +
@@ -55,7 +55,7 @@ ready = function() {
             '<p>' +
             '<a href="/users/' +
             user.id +
-            '">' + '$' + user.handle +
+            '">' + '@' + user.handle +
             '</a>' +
             '</p>' +
             '</div>'+

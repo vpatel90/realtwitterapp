@@ -10,7 +10,10 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper container">
-      <%= link_to "Chattr", root_path, class:"brand-logo" %>
+      <%= link_to root_path, class:"brand-logo left" do %>
+        <i class="fa fa-comments chattr-logo" aria-hidden="true"></i>
+        <small class="chattr-logo"> Chattr</small>
+      <% end %>
       <ul class="right">
 
          <% if signed_in? %>
@@ -18,7 +21,7 @@
              <%= link_to "Log Out", sign_out_path %>
            </li>
            <li>
-             <%= link_to "Hello, $ #{current_user.handle}", user_path(current_user.id) %>
+             <%= link_to "Hello, @#{current_user.handle}", user_path(current_user.id), class:"welcome-user" %>
            </li>
          <% else %>
            <li>
@@ -37,13 +40,10 @@
 <div class="main-page container">
   <% if signed_in? %>
     <div class="container">
-      <%= form_tag '/thoughts', remote:true, id:"new-thought", method: :POST do %>
-        <div class="row">
-          <%= label_tag :body, "New Thought"%>
-        </div>
+      <%= form_tag '/thoughts', remote:true, class:"new-thought", id:"new-thought", method: :POST do %>
         <div class="row">
           <div class="col s10 m10 l10">
-          <%= text_field_tag :body, nil, class: "user-form", autofocus: true %>
+          <%= text_field_tag :body, nil, class: "user-form", placeholder: "What are you thinking?", autofocus: true %>
           </div>
           <div class="right col s2 m2 l2">
           <%= submit_tag "Share", class: "btn btn-color", id:"thought_submit" %>

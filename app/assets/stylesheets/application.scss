@@ -16,8 +16,10 @@
 
 
  @import "materialize";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
-$body-bg:               #D8C9C4;
+$body-bg:               #F8FBFD;
 $gray-base:              #000 !default;
 $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
 $gray-dark:              #4B3859;   // #333
@@ -31,15 +33,42 @@ $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
 
+
+$brand-accent: #9BC9EB;
+
 nav {
-  background-color: $gray-dark;
+  // background: -moz-linear-gradient(left, rgba(136,191,232,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+  // background: -webkit-linear-gradient(left, rgba(136,191,232,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  // background: linear-gradient(to right, rgba(136,191,232,1) 0%,rgba(255,255,255,1) 100%);
+
+  background-color: $body-bg;
+  li {
+    a {
+    color: #777;
+    }
+  }
+
+  .welcome-user {
+    color: #555;
+  }
 }
 
-.field-with-errors {
+.chattr-logo {
+  color: #777;
+}
+
+.row .field-with-errors {
   input[type=text]:focus {
   border-bottom: 1px solid red;
   box-shadow: 0 1px 0 0 #000;
   }
+}
+
+.row {
+    input[type=text]:focus {
+    border-bottom: 2px solid $brand-accent;
+    box-shadow: 0 1px 0 0 #777;
+    }
 }
 
 body {
@@ -56,7 +85,7 @@ body {
   }
 
   .btn-color {
-    background-color: $gray-dark;
+    background-color: $brand-accent;
     &:hover {
       background-color: $gray;
     }
@@ -69,7 +98,6 @@ body {
 
 .hidden-form {
   display: none;
-  height: 0;
 }
 
 .user-form {
