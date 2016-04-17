@@ -91,12 +91,20 @@ nav {
   width: 41px;
   height: 41px;
   border-radius: 50%;
+  img {
+    padding-top: 1px;
+    padding-left: 1px;
+  }
 }
 .pic-border-lg {
   background-color: $brand-accent;
   width: 202px;
   height: 202px;
   border-radius: 50%;
+  img {
+    padding-top: 2px;
+    padding-left: 2px;
+  }
 }
 .row {
     input[type=text]:focus {
