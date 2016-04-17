@@ -9,6 +9,10 @@ class Thought < ActiveRecord::Base
     "#{created_at.strftime('%r')} on #{created_at.strftime('%x')}"
   end
 
+  def user_pic
+    user.pic
+  end
+
   def user_handle
     user.handle
   end
@@ -18,6 +22,6 @@ class Thought < ActiveRecord::Base
   end
 
   def as_json(_ = nil)
-    super(methods: [:time, :user_handle, :user_id])
+    super(methods: [:time, :user_handle, :user_id, :user_pic])
   end
 end

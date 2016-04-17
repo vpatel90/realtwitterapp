@@ -39,7 +39,7 @@
 
 <div class="main-page container">
   <% if signed_in? %>
-    <div class="container">
+    <div class="container thought-form-container">
       <%= form_tag '/thoughts', remote:true, class:"new-thought", id:"new-thought", method: :POST do %>
         <div class="row">
           <div class="col s10 m10 l10">

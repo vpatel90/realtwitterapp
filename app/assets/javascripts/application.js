@@ -22,36 +22,47 @@ ready = function() {
     $("#thought_submit").prop("disabled", true);
     clearInterval(refreshThoughts);
     var getHTML = function(thought) {
-        return '<div class="thought-card col s12 m12 l12">' +
-        '<div class="row thought-header">' +
-          '<div class="col s6 m4 l4">' +
-            '<p>' +
-            '<a href="/users/' +
-            thought.user_id +
-            '">' + '@' + thought.user_handle +
-            '</a>' +
-            '</p>' +
-          '</div>' +
-          '<div class="right">' +
-            '<p> <small>' + thought.time + '</small></p>' +
-          '</div>' +
-        '</div>' +
-        '<a href="/thoughts/' +
-        thought.id +
-        '">' +
+        return '<div class="col s12 m12 l12">' +
         '<div class="row">' +
-          '<div class="col s12 m12 l12">' +
-            '<p>' + thought.body + '</p>' +
+          '<div class="col s6 m4 l4">' +
+            '<div class="row">' +
+              '<div class="col s2 m2 l2 profile-pic-center">' +
+                '<div class="pic-border">' +
+                  '<img class="responsive-img circle profile-pic" src="' +
+                    thought.user_pic +
+                '"></div>' +
+                '</div>' +
+              '<div class="col s7 m7 l7">' +
+                '<p>' +
+                '<a class="link-color" href="/users/' +
+                  thought.user_id +
+                  '">' + '@' + thought.user_handle +
+                '</a>' +
+                '</p>' +
+              '</div>' +
+            '</div>' +
           '</div>' +
-        '</div>' +
-        '</a>' +
-      '</div>';
+            '<div class="right">' +
+              '<p> <small>' + thought.time + '</small></p>' +
+            '</div>' +
+
+          '</div>' +
+          '<a href="/thoughts/' +
+            thought.id +
+          '">' +
+          '<div class="row">' +
+            '<div class="col s12 m12 l12">' +
+              '<p>' + thought.body + '</p>' +
+            '</div>' +
+          '</div>' +
+          '</a>' +
+        '</div>';
     };
 
     var getTopUserHTML = function(user) {
-        return '<div class="thought-card col s12 m12 l12">' +
-          '<div class="row thought-header">' +
-            '<div class="col s2 m2 l2">'+
+        return '<div class="col s12 m12 l12">' +
+          '<div class="row">' +
+            '<div class="col s2 m2 l2 profile-pic-center">'+
             '<div class="pic-border">' +
             '<img class="responsive-img circle profile-pic" src="' +
             user.pic + '">'+
@@ -61,7 +72,7 @@ ready = function() {
             '</div>'+
             '<div class="col s7 m7 l7">'+
             '<p>' +
-            '<a href="/users/' +
+            '<a class="link-color" href="/users/' +
             user.id +
             '">' + '@' + user.handle +
             '</a>' +
@@ -78,7 +89,7 @@ ready = function() {
     var jsonThoughts = function () {
 
       $.getJSON(url, function(response){
-            $("#thoughts-container").html("<h3> Now </h3>");
+            $("#thoughts-container").html("<h3 class=\"container-header\"> Now </h3>");
             response["thoughts"].forEach(function(thought) {
                 $("#thoughts-container").append(getHTML(thought));
             });
@@ -86,7 +97,7 @@ ready = function() {
             if (topUsersContainer.length === 0) {
               return
             } else {
-              topUsersContainer.html("<h3> Top Users </h3>");
+              topUsersContainer.html("<h3 class=\"container-header center\"> Top Users </h3>");
               response["top_users"].forEach(function(user) {
                   topUsersContainer.append(getTopUserHTML(user));
               });
@@ -122,9 +133,9 @@ ready = function() {
         $("#thought_submit").prop("disabled", false);
       }
    });
-    // refreshThoughts = setInterval(function () {
-    //     jsonThoughts();
-    // }, 1000);
+    refreshThoughts = setInterval(function () {
+        jsonThoughts();
+    }, 1000);
 
     $("#hide-form, #show-form").on("click", function(){
         $("#form-container").toggleClass("hidden-form");
