@@ -43,7 +43,7 @@ ready = function() {
             '</div>' +
           '</div>' +
             '<div class="right pad-right">' +
-              '<p> <small>' + thought.time + '</small></p>' +
+              '<p class="link-color"> <small>' + thought.time + '</small></p>' +
             '</div>' +
 
           '</div>' +
