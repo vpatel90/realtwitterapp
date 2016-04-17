@@ -73,9 +73,15 @@ nav {
   color: #777;
 }
 
+
 .profile-pic {
   width: 40px;
   height: 40px;
+}
+
+.profile-pic-lg{
+  width: 200px;
+  height: 200px;
 }
 .profile-pic-center{
   margin-top: 7px;
@@ -86,7 +92,12 @@ nav {
   height: 41px;
   border-radius: 50%;
 }
-
+.pic-border-lg {
+  background-color: $brand-accent;
+  width: 202px;
+  height: 202px;
+  border-radius: 50%;
+}
 .row {
     input[type=text]:focus {
     border-bottom: 2px solid $brand-accent;
@@ -124,9 +135,38 @@ body {
   }
   .top-users-container {
     background-color: white;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
     border-radius: 2%;
     margin: 0 20px;
+  }
+  .top-thoughts-container {
+    background-color: white;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 8px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 2%;
+    margin: 0 20px;
+  }
+  .no-margin {
+    margin-bottom: 0;
+  }
+  .no-top-margin {
+    margin-top: 0;
+  }
+
+  .pad-bot {
+    padding-bottom: 20px;
+  }
+  .bottom-border {
+    border-bottom: solid 1px lighten($brand-accent, 15%);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+
+  }
+  .pad-left {
+    padding-left: 45px;
+  }
+
+  .pad-right {
+    padding-right: 25px;
   }
 
 }

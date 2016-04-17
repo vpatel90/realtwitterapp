@@ -22,10 +22,10 @@ ready = function() {
     $("#thought_submit").prop("disabled", true);
     clearInterval(refreshThoughts);
     var getHTML = function(thought) {
-        return '<div class="col s12 m12 l12">' +
-        '<div class="row">' +
+        return '<div class="col s12 m12 l12 bottom-border">' +
+        '<div class="row no-margin">' +
           '<div class="col s6 m4 l4">' +
-            '<div class="row">' +
+            '<div class="row no-margin">' +
               '<div class="col s2 m2 l2 profile-pic-center">' +
                 '<div class="pic-border">' +
                   '<img class="responsive-img circle profile-pic" src="' +
@@ -50,9 +50,9 @@ ready = function() {
           '<a href="/thoughts/' +
             thought.id +
           '">' +
-          '<div class="row">' +
+          '<div class="row no-margin">' +
             '<div class="col s12 m12 l12">' +
-              '<p>' + thought.body + '</p>' +
+              '<p class="pad-left no-top-margin pad-bot link-color">' + thought.body + '</p>' +
             '</div>' +
           '</div>' +
           '</a>' +
@@ -133,6 +133,7 @@ ready = function() {
         $("#thought_submit").prop("disabled", false);
       }
    });
+
     refreshThoughts = setInterval(function () {
         jsonThoughts();
     }, 1000);

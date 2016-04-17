@@ -1,0 +1,25 @@
+
+
+<div class="col s12 m12 l12">
+  <div class="row">
+    <div class="col s3 m3 l3 profile-pic-center">
+      <div class="pic-border-lg">
+      <img class="responsive-img circle profile-pic-lg" src="<%= user.pic %>"></div>
+    </div>
+    <div class="col s9 m9 l9">
+      <div class="row">
+        <div class="col s10 m10 l10">
+          <h3><%= link_to "@#{user.handle}", user_path(user.id), class:"link-color" %></h3>
+        </div>
+
+        <div class="col s2 m2 l2">
+          <h3 class="chattr-logo"> <i class="fa fa-comment" aria-hidden="true"></i>
+            <%= user.thoughts_count %></h3>
+        </div>
+      </div>
+      <div class="row">
+        <p class="pad-left link-color"> <%= user.bio %> </p>
+      </div>
+    </div>
+  </div>
+</div>
