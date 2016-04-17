@@ -35,6 +35,13 @@ nav {
   background-color: $gray-dark;
 }
 
+.field-with-errors {
+  input[type=text]:focus {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 #000;
+  }
+}
+
 body {
   background-color: $body-bg;
   label {

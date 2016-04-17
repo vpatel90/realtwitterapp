@@ -19,6 +19,7 @@
 var ready;
 var refreshThoughts;
 ready = function() {
+    $("#thought_submit").prop("disabled", true);
     clearInterval(refreshThoughts);
     var getHTML = function(thought) {
         return '<div class="thought-card col s12 m12 l12">' +
@@ -90,9 +91,32 @@ ready = function() {
         jsonThoughts();
     });
 
-    refreshThoughts = setInterval(function () {
-        jsonThoughts();
-    }, 1000);
+
+
+   $("#user_handle").on("keydown keyup", function () {
+      var input_val = $(this).val();
+      if (input_val.trim().length < 3) {
+        $(this).parent().addClass("field-with-errors");
+      } else {
+        $(this).parent().removeClass("field-with-errors");
+      }
+   });
+
+   $("#body").on("keydown keyup", function () {
+      var input_val = $(this).val();
+      $(".char-count").html("");
+      $(".char-count").html((140 - input_val.trim().length));
+      if ((input_val.trim().length < 3) || (input_val.trim().length > 140)){
+        $(this).parent().addClass("field-with-errors");
+        $("#thought_submit").prop("disabled", true);
+      } else {
+        $(this).parent().removeClass("field-with-errors");
+        $("#thought_submit").prop("disabled", false);
+      }
+   });
+    // refreshThoughts = setInterval(function () {
+    //     jsonThoughts();
+    // }, 1000);
 
     $("#hide-form, #show-form").on("click", function(){
         $("#form-container").toggleClass("hidden-form");

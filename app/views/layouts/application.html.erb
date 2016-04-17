@@ -45,10 +45,13 @@
           <div class="col s10 m10 l10">
           <%= text_field_tag :body, nil, class: "user-form", autofocus: true %>
           </div>
-          <div class="right">
-          <%= submit_tag "Share", class: "btn btn-color" %>
+          <div class="right col s2 m2 l2">
+          <%= submit_tag "Share", class: "btn btn-color", id:"thought_submit" %>
           </div>
         </div>
+
+          <small>Characters Remaining: </small><small class="char-count">140</small>
+
       <% end %>
     </div>
   <% end %>
