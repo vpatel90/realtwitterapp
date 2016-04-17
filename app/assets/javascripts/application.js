@@ -110,7 +110,14 @@ ready = function() {
         jsonThoughts();
     });
 
-
+    $(".edit_user[data-remote]").on("ajax:success", function (e, data, status, xhr){
+        console.log("hi")
+        $.getJSON(url, function(response){
+            $(".profile-pic-lg").prop("src", response["user"].pic)
+            $(".handle-name").html(response["user"].handle)
+            $(".bio-info").html(response["user"].bio)
+        });
+    });
 
    $("#user_handle").on("keydown keyup", function () {
       var input_val = $(this).val();
