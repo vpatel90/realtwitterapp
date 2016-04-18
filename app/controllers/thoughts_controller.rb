@@ -17,6 +17,15 @@ class ThoughtsController < ApplicationController
 
   def show
     @thought = Thought.find(params[:id])
+    @responses = @thought.responses.order(created_at: :desc)
+    respond_to do |format|
+      format.html do
+      end
+      format.json do
+        render json: { response: "true", thoughts: @responses }
+      end
+
+    end
   end
 
   def create

@@ -43,7 +43,9 @@ ready = function() {
             '</div>' +
           '</div>' +
             '<div class="right pad-right">' +
-              '<p class="link-color"> <small>' + thought.time + '</small></p>' +
+              '<p class="link-color"> <small>' + thought.time + '</small>' +
+              '<br><small>Responses: ' + thought.responses_count +
+              '</small></p>' +
             '</div>' +
 
           '</div>' +
@@ -94,7 +96,11 @@ ready = function() {
     var jsonThoughts = function () {
 
       $.getJSON(url, function(response){
-            $("#thoughts-container").html("<h3 class=\"container-header\"> Now </h3>");
+            if (response["response"] === "true") {
+              $("#thoughts-container").html("<h3 class=\"container-header\"> Responses </h3>");
+            }else {
+              $("#thoughts-container").html("<h3 class=\"container-header\"> Now </h3>");
+            }
             response["thoughts"].forEach(function(thought) {
                 $("#thoughts-container").append(getHTML(thought));
             });
