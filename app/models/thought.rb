@@ -1,6 +1,14 @@
 class Thought < ActiveRecord::Base
   belongs_to :user, counter_cache: true
 
+  has_many :active_conversations, class_name:  "Conversation",
+                                foreign_key: "responder_id"
+
+  has_many :parent, through: :active_conversations, source: :initiator
+  has_many :passive_conversations, class_name: "Conversation", foreign_key: "initiator_id"
+  has_many :responses, through: :passive_conversations, source: :responder
+
+
   validates :body, presence: true
 
   validates :body, length: { in: 2..140 }

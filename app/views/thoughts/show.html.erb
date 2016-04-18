@@ -7,9 +7,28 @@
 
 <div class="row">
   <div class="col s12 m12 l12 top-thoughts-container" id="thoughts-container">
-
       <%= render partial: 'thoughts/thoughtbox',
           locals: { thought: @thought } %>
-
   </div>
 </div>
+
+<% if signed_in? %>
+<div class="btn btn-color right", id="show-form"> Reply </div>
+
+  <div id="form-container" class="hidden-form container thought-form-container">
+    <%= form_tag '/thoughts', remote:true, class:"new-thought", id:"new-thought", method: :POST do %>
+      <div class="row no-margin">
+        <div class="col s10 m10 l10">
+        <%= hidden_field_tag :initiator_id, @thought.id %>
+        <%= text_field_tag :body, nil, class: "user-form", placeholder: "What are you thinking?", autofocus: true %>
+        </div>
+        <div class="right col s2 m2 l2">
+        <%= submit_tag "Share", class: "btn btn-color", id:"hide-form" %>
+        </div>
+      </div>
+
+        <small>Characters Remaining: </small><small class="char-count">140</small>
+
+    <% end %>
+  </div>
+<% end %>

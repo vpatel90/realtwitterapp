@@ -21,8 +21,12 @@ class ThoughtsController < ApplicationController
 
   def create
     @thought = current_user.thoughts.build(body: params[:body])
+
     if @thought.save
-      flash[:notice] = "Welcome to Chattr!"
+      if params[:initiator_id]
+        Conversation.create(initiator_id: params[:initiator_id],
+                            responder_id: @thought.id)
+      end
       redirect_to root_path
     else
       flash[:alert] = "Something went wrong! Try again"
