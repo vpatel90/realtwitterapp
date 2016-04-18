@@ -84,7 +84,7 @@ ready = function() {
             '</small>' +
             '</div>'+
             '<div class="col s3 m3 l3">' +
-              '<p class="chattr-logo"> <i class="fa fa-comment" aria-hidden="true"></i>' + user.thoughts_count + '</p>' +
+              '<p class="chattr-logo"> <i class="fa fa-comment" aria-hidden="true"></i> ' + user.thoughts_count + '</p>' +
             '</div>' +
           '</div>' +
         '</div>';
