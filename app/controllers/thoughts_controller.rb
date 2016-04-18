@@ -7,7 +7,6 @@ class ThoughtsController < ApplicationController
         @thoughts
       end
       format.json do
-
         render json: { thoughts: @thoughts,
                         top_users: @top_users }
       end

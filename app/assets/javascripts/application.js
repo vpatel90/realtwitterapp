@@ -21,6 +21,7 @@ var refreshThoughts;
 ready = function() {
     $("#thought_submit").prop("disabled", true);
     clearInterval(refreshThoughts);
+
     var getHTML = function(thought) {
         return '<div class="col s12 m12 l12 bottom-border">' +
         '<div class="row no-margin">' +
@@ -94,7 +95,6 @@ ready = function() {
 
     var url = document.URL;
     var jsonThoughts = function () {
-
       $.getJSON(url, function(response){
             if (response["response"] === "true") {
               $("#thoughts-container").html("<h3 class=\"container-header\"> Responses </h3>");
@@ -121,9 +121,10 @@ ready = function() {
         jsonThoughts();
     });
 
-    // $(".edit_user[data-remote]").on("ajax:success", function (e, data, status, xhr){
-    //     updateUser();
-    // });
+    refreshThoughts = setInterval(function () {
+        jsonThoughts();
+    }, 1000);
+
     var updateUser = function () {
         $.getJSON(url, function(response){
             console.log(response);
@@ -155,9 +156,7 @@ ready = function() {
       }
    });
 
-    refreshThoughts = setInterval(function () {
-        jsonThoughts();
-    }, 1000);
+
 
     $("#hide-form, #show-form").on("click", function(){
         $("#form-container").toggleClass("hidden-form");
