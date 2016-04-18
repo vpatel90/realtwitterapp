@@ -16,6 +16,7 @@ class ThoughtsController < ApplicationController
   end
 
   def show
+    @thought = Thought.find(params[:id])
   end
 
   def create
@@ -30,6 +31,16 @@ class ThoughtsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @thought = Thought.find(params[:id])
+    if @thought.destroy
+      redirect_to root_path
+    else
+      flash[:alert] = "Unable to Delete"
+      redirect_to(:back)
+    end
   end
 
   private
