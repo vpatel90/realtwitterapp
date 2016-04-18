@@ -62,7 +62,7 @@ ready = function() {
     var getTopUserHTML = function(user) {
         return '<div class="col s12 m12 l12">' +
           '<div class="row">' +
-            '<div class="col s2 m2 l2 profile-pic-center">'+
+            '<div class="col s2 m2 l2">'+
             '<div class="pic-border">' +
             '<img class="responsive-img circle profile-pic" src="' +
             user.pic + '">'+
@@ -71,12 +71,17 @@ ready = function() {
 
             '</div>'+
             '<div class="col s7 m7 l7">'+
-            '<p>' +
+
             '<a class="link-color" href="/users/' +
             user.id +
             '">' + '@' + user.handle +
             '</a>' +
-            '</p>' +
+            '<br>' +
+            '<small class="link-color">Follows: ' +
+            user.following_count +
+            ' | Followers: ' +
+            user.followers_count +
+            '</small>' +
             '</div>'+
             '<div class="col s3 m3 l3">' +
               '<p class="chattr-logo"> <i class="fa fa-comment" aria-hidden="true"></i>' + user.thoughts_count + '</p>' +

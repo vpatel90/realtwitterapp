@@ -10,6 +10,8 @@
       <div class="row">
         <div class="col s10 m10 l10">
           <h3><%= link_to "@#{user.handle}", user_path(user.id), class:"handle-name link-color" %></h3>
+          <h6 class="link-color pad-left">Follows: <%= user.following_count %> | Followers: <%= user.followers_count %></h6>
+
         </div>
 
         <div class="col s2 m2 l2">
@@ -18,7 +20,27 @@
         </div>
       </div>
       <div class="row">
-        <p class="pad-left link-color bio-info"> <%= user.bio %> </p>
+        <div class="col s10 m10 l10">
+          <p class="pad-left link-color bio-info"> <%= user.bio %> </p>
+        </div>
+        <div class="col s2 m2 l2">
+          <% unless current_user == (@user) %>
+            <div id="follow_form">
+            <% if current_user.following?(@user) %>
+              <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+                           html: { method: :delete }) do |f| %>
+                <%= f.submit "Unfollow", class: "btn btn-color" %>
+              <% end %>
+            <% else %>
+              <%= form_for(current_user.active_relationships.build) do |f| %>
+                <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                <%= f.submit "Follow", class: "btn" %>
+              <% end %>
+
+            <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
