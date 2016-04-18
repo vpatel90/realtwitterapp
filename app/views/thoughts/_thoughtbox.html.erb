@@ -16,7 +16,11 @@
 
     <div class="right link-color pad-right">
       <p> <small><%= thought.time %> </small><br>
-          <small>Responses: <%= thought.responses_count %></small></p>
+          <small>
+          <%= link_to "Responses: #{thought.responses_count}", thought_path(thought.id), class:"link-color" %>
+          <% if thought.parent_id %>
+            <%= link_to " | Context", thought_path(thought.parent_id), class:"link-color"%>
+          <% end %></small></p>
     </div>
 
   </div>

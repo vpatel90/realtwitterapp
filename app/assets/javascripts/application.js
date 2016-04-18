@@ -23,6 +23,14 @@ ready = function() {
     clearInterval(refreshThoughts);
 
     var getHTML = function(thought) {
+
+        if (thought.parent_id) {
+          var context = '<a class="link-color" href="/thoughts/' +
+                        thought.parent_id +
+                        '"> | Context </a>';
+        }else {
+          var context = '';
+        }
         return '<div class="col s12 m12 l12 bottom-border">' +
         '<div class="row no-margin">' +
           '<div class="col s6 m4 l4">' +
@@ -43,9 +51,13 @@ ready = function() {
               '</div>' +
             '</div>' +
           '</div>' +
-            '<div class="right pad-right">' +
-              '<p class="link-color"> <small>' + thought.time + '</small>' +
-              '<br><small>Responses: ' + thought.responses_count +
+            '<div class="right link-color pad-right">' +
+              '<p> <small>' + thought.time + '</small>' +
+              '<br><small><a class="link-color" href="/thoughts/' +
+              thought.id + '">' +
+              'Responses: ' + thought.responses_count +
+              '</a>' +
+              context +
               '</small></p>' +
             '</div>' +
 
@@ -121,9 +133,9 @@ ready = function() {
         jsonThoughts();
     });
 
-    refreshThoughts = setInterval(function () {
-        jsonThoughts();
-    }, 1000);
+    // refreshThoughts = setInterval(function () {
+    //     jsonThoughts();
+    // }, 1000);
 
     var updateUser = function () {
         $.getJSON(url, function(response){

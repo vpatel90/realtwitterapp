@@ -33,7 +33,15 @@ class Thought < ActiveRecord::Base
     responses.count
   end
 
+  def parent_id
+    if parent.first
+      parent.first.id
+    else
+      nil
+    end
+  end
+
   def as_json(_ = nil)
-    super(methods: [:time, :user_handle, :user_id, :user_pic, :responses_count])
+    super(methods: [:time, :user_handle, :user_id, :user_pic, :responses_count, :parent_id])
   end
 end
