@@ -133,9 +133,9 @@ ready = function() {
         jsonThoughts();
     });
 
-    // refreshThoughts = setInterval(function () {
-    //     jsonThoughts();
-    // }, 1000);
+    refreshThoughts = setInterval(function () {
+        jsonThoughts();
+    }, 1000);
 
     var updateUser = function () {
         $.getJSON(url, function(response){

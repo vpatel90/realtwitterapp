@@ -10,7 +10,6 @@ class ThoughtsController < ApplicationController
         render json: { thoughts: @thoughts,
                         top_users: @top_users }
       end
-
     end
   end
 
